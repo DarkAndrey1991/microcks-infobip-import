@@ -1,0 +1,59 @@
+openapi: 3.0.1
+info:
+  title: Infobip
+  version: 1.0.0
+paths:
+  /email/2/validations:
+    post:
+      responses:
+        202:
+          description: 'ACCEPTED'
+          content:
+            application/json:
+              examples:
+                BulkValidationResponse:
+                  value: |-
+                    {
+                      "validationRequestId": "{{ uuid() }}"
+                    }
+    get:
+      responses:
+        200:
+          description: 'OK'
+          content:
+            application/json:
+              examples:
+                BulkValidationResult:
+                  value: |-
+                    {
+                    "results": [
+                      {
+                        "destination": "john.smith@example.org",
+                        "validMailbox": true,
+                        "validSyntax": true,
+                        "catchAll": false,
+                        "disposable": true,
+                        "roleBased": false,
+                        "risk": "HIGH",
+                        "detailedReasons": "disposable_address",
+                        "bulkValidationDate": "2025-03-01T12:02:15.100Z",
+                        "validationRequestId": "2034072219640523072"
+                      },
+                      {
+                        "destination": "john.doe@example.org",
+                        "validMailbox": true,
+                        "validSyntax": true,
+                        "catchAll": false,
+                        "disposable": false,
+                        "roleBased": false,
+                        "risk": "LOW",
+                        "bulkValidationDate": "2025-03-01T13:03:05.500Z",
+                        "validationRequestId": "2034072219640523072"
+                      }
+                    ],
+                    "paging": {
+                      "size": 100,
+                      "previousCursor": "A1F3B5C7D9E2F4A6B8C0D1E3F5A7B9C1D3E5F7A9B2C4D6E8F0A1B3C5D7E9F2A4",
+                      "nextCursor": "B78918C36BB3BDCB194C0DFD2C2FBB8F7D098E56E8B5D8699997CD97A049D739"
+                    }
+                    }
