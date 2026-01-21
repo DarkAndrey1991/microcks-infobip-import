@@ -40,6 +40,18 @@ paths:
                         "validationRequestId": "2034072219640523072"
                       },
                       {
+                        "destination": "john.smith.copy@example.org",
+                        "validMailbox": true,
+                        "validSyntax": true,
+                        "catchAll": false,
+                        "disposable": true,
+                        "roleBased": false,
+                        "risk": "HIGH",
+                        "detailedReasons": "disposable_address",
+                        "bulkValidationDate": "2025-03-01T12:02:15.100Z",
+                        "validationRequestId": "2034072219640523072"
+                      },
+                      {
                         "destination": "john.doe@example.org",
                         "validMailbox": true,
                         "validSyntax": true,
